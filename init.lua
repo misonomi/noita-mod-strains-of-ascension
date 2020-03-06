@@ -1,6 +1,10 @@
 
+-- maybe it should be defined in xml? I don't know
+local FORCEFIELD_INTERVAL = 20
+
 -- TODO: handle multiple players
 local max_y = 0
+
 
 function OnWorldPreUpdate()
 	local players = EntityGetWithTag("player_unit")
@@ -12,6 +16,10 @@ function OnWorldPreUpdate()
 
 		GamePrint(tostring(GameGetFrameNum()) .. ": " .. tostring(y) .. "m")
 		GamePrint(tostring(GameGetFrameNum()) .. ": " .. tostring(max_y) .. "m")
+
+		if y < max_y - FORCEFIELD_INTERVAL then
+			GamePrint(tostring("Got the curse of the abyss")
+		end
 	end
 end
 

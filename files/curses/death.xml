@@ -10,6 +10,6 @@
 		update_every_n_frame="1"
 		entities_with_tag="player_unit"
 		death_cause="curse of the abyss"
-		>
+  >
 	</AreaDamageComponent>
 </Entity>

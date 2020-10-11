@@ -1,7 +1,7 @@
 dofile("mods/strains_of_ascension/files/curse.lua")
 
 -- maybe it should be defined in xml? I don't know
-local FORCEFIELD_INTERVAL = 200
+local FORCEFIELD_INTERVAL = 20
 
 -- TODO: handle multiple players
 local max_y = 0
@@ -13,7 +13,8 @@ function OnWorldPreUpdate()
 	if players == nil then return end
 
 	for i, p in ipairs(players) do
-		local y = select(2, EntityGetTransform(p))
+		local x, y = EntityGetTransform(p)
+		GamePrint(BiomeMapGetName(x, y))
 		-- GamePrint("Debug: player at [" .. x .. ", " .. y .. "]" )
 		if y > max_y then max_y = y end
 
@@ -24,6 +25,7 @@ function OnWorldPreUpdate()
 				if curse and curse.valid then
 					GamePrintImportant("Got the curse of the abyss", curse.desc)
 					curse.ignite(p)
+					curse.valid = false
 				end
 			end
 		end

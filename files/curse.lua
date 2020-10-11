@@ -30,10 +30,11 @@ function hemorrhage( player_entity )
 end
 
 function sensory_deprivation( player_entity )
-    EntityAddChild(player_entity, EntityLoad("mods/strains_of_ascension/files/curses/sensory_deprivation.xml"))
+    LoadGameEffectEntityTo(player_entity, "mods/strains_of_ascension/files/curses/sensory_deprivation.xml")
 end
 
 function loss_of_humanity( player_entity )
+    LoadGameEffectEntityTo(player_entity, "mods/strains_of_ascension/files/curses/loss_of_humanity.xml")
 end
 
 function death( player_entity )

@@ -1,6 +1,6 @@
 
 biome_layer_map = {
-    ["$biome_coalmine"] = 6,
+    ["$biome_coalmine"] = 4,
     ["$biome_coalmine_alt"] = 1,
     ["$biome_town_under"] = 1,
     ["$biome_excavationsite"] = 2,
@@ -27,6 +27,11 @@ function hallucination( player_entity )
 end
 
 function hemorrhage( player_entity )
+    EntityAddComponent(player_entity, "ParticleEmitterComponent", {
+        emitter_lifetime_frames = 1200,
+        emission_interval_min_frames = 1,
+        emission_interval_max_frames = 3,
+    })
 end
 
 function sensory_deprivation( player_entity )

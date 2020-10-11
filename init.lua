@@ -1,4 +1,4 @@
-dofile("mods/strains_of_ascension/curse.lua")
+dofile("mods/strains_of_ascension/files/curse.lua")
 
 -- maybe it should be defined in xml? I don't know
 local FORCEFIELD_INTERVAL = 200
@@ -13,18 +13,21 @@ function OnWorldPreUpdate()
 
 	for i, p in ipairs(players) do
 		local x, y = EntityGetTransform(p)
+		-- GamePrint("Debug: player at [" .. x .. ", " .. y .. "]" )
 		if y > max_y then max_y = y end
 
 		if y < max_y - FORCEFIELD_INTERVAL then
 			local layer = biome_layer_map[BiomeMapGetName(x, y)]
 			if layer then
 				local curse = curse_table[layer]
-				if curse then
+				if curse and curse.valid then
 					GamePrintImportant("Got the curse of the abyss", curse.desc)
-					curse.effect(p)
+					curse.ignite(p)
 				end
 			end
 		end
+
+		tick_curse()
 	end
 end
 

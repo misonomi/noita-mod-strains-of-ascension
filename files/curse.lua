@@ -10,7 +10,7 @@ biome_layer_map = {
     ["$biome_snowcastle"] = 4,
     ["$biome_rainforest"] = 5,
     ["$biome_vault"] = 6,
-    ["$biome_crypt"] = 6,
+    ["$biome_crypt"] = 7,
 }
 
 function complain( player_entity )

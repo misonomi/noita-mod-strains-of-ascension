@@ -1,7 +1,7 @@
 <Entity
   name="curse"
 >
-	<InheritTransformComponent/>
+  <InheritTransformComponent/>
     
   <GameEffectComponent 
     effect="POLYMORPH"
@@ -9,7 +9,7 @@
     disable_movement="0"
     polymorph_target="data/entities/animals/sheep.xml"
   >
-	</GameEffectComponent>
+  </GameEffectComponent>
 
 	<Entity name="explosion">
 	  <InheritTransformComponent/>

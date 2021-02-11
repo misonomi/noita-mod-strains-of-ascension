@@ -1,6 +1,5 @@
-
 biome_layer_map = {
-    ["$biome_coalmine"] = 4,
+    ["$biome_coalmine"] = 1,
     ["$biome_coalmine_alt"] = 1,
     ["$biome_town_under"] = 1,
     ["$biome_excavationsite"] = 2,
@@ -14,16 +13,32 @@ biome_layer_map = {
 }
 
 function complain( player_entity )
-    GamePrint("Debug: got woring curse")
+    GamePrint("Debug: got unknown curse")
 end
 
-function vertigo( player_entity )
+function dizziness( player_entity )
+    -- XXX: swap drug effect component in a bad manner
+    local drug_component = EntityGetFirstComponent(player_entity, "DrugEffectComponent")
+    if drug_component then
+        EntityRemoveComponent(player_entity, drug_component)
+    end
+    EntityLoadToEntity("mods/strains_of_ascension/files/curses/dizziness.xml", player_entity)
 end
 
 function headache( player_entity )
+    local drug_component = EntityGetFirstComponent(player_entity, "DrugEffectComponent")
+    if drug_component then
+        EntityRemoveComponent(player_entity, drug_component)
+    end
+    EntityLoadToEntity("mods/strains_of_ascension/files/curses/headache.xml", player_entity)
 end
 
 function hallucination( player_entity )
+    local drug_component = EntityGetFirstComponent(player_entity, "DrugEffectComponent")
+    if drug_component then
+        EntityRemoveComponent(player_entity, drug_component)
+    end
+    EntityLoadToEntity("mods/strains_of_ascension/files/curses/hallucination.xml", player_entity)
 end
 
 function hemorrhage( player_entity )
@@ -50,24 +65,24 @@ end
 function tick_curse()
     local curse = EntityGetWithName("curse")
     if curse == 0 then
-        GamePrint("Debug: no curse")
+        print("Debug: no curse")
         return
     end 
 
     local x, y = EntityGetTransform(curse)
 
-    GamePrint("Debug: curse at [" .. x .. ", " .. y .. "]" )
+    print("Debug: curse at [" .. x .. ", " .. y .. "]" )
 end
 
 curse_table = {
     [0] = {
-        desc = "0th: do nothing curse",
+        desc = "0th: nothing",
         ignite = complain,
         valid = true,
     },
     [1] = {
         desc = "1st layer: Light dizziness and nausea",
-        ignite = vertigo,
+        ignite = dizziness,
         valid = true,
     },
     [2] = {

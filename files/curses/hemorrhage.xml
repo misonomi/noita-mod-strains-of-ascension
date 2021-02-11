@@ -1,0 +1,17 @@
+<Entity>
+  <ParticleEmitterComponent
+    emitted_material_name="blood"
+    emitter_lifetime_frames="3600"
+    x_vel_min="-20"
+    x_vel_max="20"
+    y_vel_min="-20"
+    y_vel_max="20"
+    direction_random_deg="90"
+    emission_interval_min_frames="1"
+    emission_interval_max_frames="2"
+    count_min="3"
+    count_max="5"
+    area_circle_radius.max="7"
+  >
+  </ParticleEmitterComponent>
+</Entity>

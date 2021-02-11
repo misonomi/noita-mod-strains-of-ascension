@@ -42,11 +42,7 @@ function hallucination( player_entity )
 end
 
 function hemorrhage( player_entity )
-    EntityAddComponent(player_entity, "ParticleEmitterComponent", {
-        emitter_lifetime_frames = 1200,
-        emission_interval_min_frames = 1,
-        emission_interval_max_frames = 3,
-    })
+    EntityLoadToEntity("mods/strains_of_ascension/files/curses/hemorrhage.xml", player_entity)
 end
 
 function sensory_deprivation( player_entity )

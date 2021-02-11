@@ -25,7 +25,6 @@ function forcefield_check( player_entity )
             GamePrintImportant("Got the curse of the abyss", curse.desc)
             GamePlaySound("data/audio/Desktop/event_cues.snd", "event_cues/orb_distant_monster/create", x, y)
             curse.ignite(player_entity)
-            curse.valid = false
         end
         reset_ff(y)
     end

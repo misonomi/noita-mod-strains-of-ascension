@@ -6,34 +6,34 @@ FORCEFIELD_FLEX = 25
 
 -- TODO: handle multiple players
 prev_y = 0
-last_ff_y = 0
 
-function reset_ff( y )
-    last_ff_y = y - (y % FORCEFIELD_INTERVAL)
+function mody( y )
+    return y - (y % FORCEFIELD_INTERVAL)
 end
 
-function forcefield_check( player_entity )
+function forcefield_update( player_entity )
     local x, y = EntityGetTransform(player_entity)
+    local ff_entity = EntityGetWithName("forcefield")
+	local ff_y = select(2, EntityGetTransform(ff_entity))
 
-    if y > last_ff_y + FORCEFIELD_INTERVAL + FORCEFIELD_FLEX then reset_ff(y) end
+    if y > ff_y + FORCEFIELD_INTERVAL + FORCEFIELD_FLEX then ff_y = mody(y) end
     -- allow teleporting over forcefield
-    if y < last_ff_y and prev_y > y + 10 then reset_ff(y) end
+    if y < ff_y and prev_y > y + 10 then ff_y = mody(y) end
 
-    if y < last_ff_y - FORCEFIELD_FLEX then
-        local curse = curse_table[biome_layer_map[BiomeMapGetName(x, y)] or 4]
+    if y < ff_y - FORCEFIELD_FLEX then
+        local curse = curse_table[biome_layer_map[BiomeMapGetName(x, y)]]
         if curse and curse.valid then
             GamePrintImportant("Got the curse of the abyss", curse.desc)
             GamePlaySound("data/audio/Desktop/event_cues.snd", "event_cues/orb_distant_monster/create", x, y)
             curse.ignite(player_entity)
         end
-        reset_ff(y)
+        ff_y = mody(y)
     end
     prev_y = y
+    
+    EntitySetTransform(ff_entity, x, ff_y)
+    forcefield_draw(ff_entity)
 end
 
-function forcefield_draw( player_entity )
-	local x = select(1, EntityGetTransform(player_entity))
-    local ff_entity = EntityGetWithName("forcefield")
-    if ff_entity == 0 then return end
-    EntitySetTransform(ff_entity, x, last_ff_y)
+function forcefield_draw( ff_entity )
 end

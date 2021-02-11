@@ -2,8 +2,8 @@
   <DrugEffectComponent>
     <m_drug_fx_current
       color_amount="0"
-      distortion_amount="6"
-      doublevision_amount="6"
+      distortion_amount="3"
+      doublevision_amount="3"
       fractals_amount="0"
       fractals_size="0"
       nightvision_amount="0"

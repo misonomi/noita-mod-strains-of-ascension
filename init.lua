@@ -8,9 +8,15 @@ function OnWorldPreUpdate()
 	end
 end
 
+function OnModInit()
+	local common = ModTextFileGetContent("data/translations/common.csv")
+	local trans = ModTextFileGetContent("mods/strains_of_ascension/files/translations.csv")
+
+	ModTextFileSetContent("data/translations/common.csv", common .. trans)
+end
 
 function OnPlayerSpawned( player_entity )
-	GamePrintImportant("Hello Abyss!", "you should be careful on ascending")
+	GamePrintImportant("$soa_welcome", "$soa_caution")
 	local init_x, init_y = EntityGetTransform(player_entity)
 	prev_y = init_y
 	EntityLoad("mods/strains_of_ascension/files/forcefield.xml", init_x, mody(init_y) - FORCEFIELD_INTERVAL)

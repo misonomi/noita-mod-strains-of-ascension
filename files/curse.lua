@@ -70,42 +70,42 @@ end
 
 curse_table = {
     [0] = {
-        desc = "0th: nothing",
+        desc = "$soa_0th",
         ignite = complain,
         valid = true,
     },
     [1] = {
-        desc = "1st layer: Light dizziness and nausea",
+        desc = "$soa_1st",
         ignite = dizziness,
         valid = true,
     },
     [2] = {
-        desc = "2nd layer: Heavy nausea, headache and numbness of limbs",
+        desc = "$soa_2nd",
         ignite = headache,
         valid = true,
     },
     [3] = {
-        desc = "3rd layer: Vertigo combined with visual and auditory hallucinations",
+        desc = "$soa_3rd",
         ignite = hallucination,
         valid = true,
     },
     [4] = {
-        desc = "4th layer: Intense full-body pain, dizziness from pain and varying amounts of internal and external bleeding across the body",
+        desc = "$soa_4th",
         ignite = hemorrhage,
         valid = true,
     },
     [5] = {
-        desc = "5th layer: Complete sensory deprivation, confusion and self-harming behavior",
+        desc = "$soa_5th",
         ignite = sensory_deprivation,
         valid = true,
     },
     [6] = {
-        desc = "6th layer: Loss of humanity or death",
+        desc = "$soa_6th",
         ignite = loss_of_humanity,
         valid = true,
     },
     [7] = {
-        desc = "7th layer: Certain death",
+        desc = "$soa_7th",
         ignite = death,
         valid = true,
     },

@@ -1,7 +1,7 @@
 dofile("mods/strains_of_ascension/files/curse.lua")
 
 -- maybe it should be defined in xml? I don't know
-FORCEFIELD_INTERVAL = 300
+FORCEFIELD_INTERVAL = 200
 FORCEFIELD_FLEX = 25
 
 -- TODO: handle multiple players
@@ -19,9 +19,9 @@ function forcefield_update( player_entity )
     if y < ff_y and prev_y > y + 10 then ff_y = mody(y) end
 
     if y < ff_y - FORCEFIELD_FLEX then
-        local curse = curse_table[biome_layer_map[BiomeMapGetName(x, y)]]
+        local curse = curse_table[biome_layer_map[BiomeMapGetName(x, y)] or 1]
         if curse and curse.valid then
-            GamePrintImportant("Put under the Curse of the Abyss", curse.desc)
+            GamePrintImportant("$soa_cursed", curse.desc)
             GameScreenshake(100)
             GamePlaySound("data/audio/Desktop/event_cues.snd", "event_cues/orb_distant_monster/create", x, y)
             curse.ignite(player_entity)

@@ -1,6 +1,8 @@
 <Mod
   name="Strains of Ascension"
-  description="You will get curse of the abyss on ascending."
+  description=""
   tags="gameplay"
+  dont_upload_folders=""
+  dont_upload_files=""
 > 
 </Mod>

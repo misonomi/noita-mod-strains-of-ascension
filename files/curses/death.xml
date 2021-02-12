@@ -1,15 +1,15 @@
 <Entity
   name="curse"
 >
-	<AreaDamageComponent
-		aabb_min.x="-16" 
-		aabb_min.y="-16" 
-		aabb_max.x="16" 
-		aabb_max.y="16" 
-		damage_per_frame="999"
-		update_every_n_frame="1"
-		entities_with_tag="player_unit"
-		death_cause="curse of the abyss"
+  <AreaDamageComponent
+    aabb_min.x="-16"
+    aabb_min.y="-16"
+    aabb_max.x="16"
+    aabb_max.y="16"
+    damage_per_frame="999"
+    update_every_n_frame="1"
+    entities_with_tag="player_unit"
+    death_cause="curse of the abyss"
   >
-	</AreaDamageComponent>
+  </AreaDamageComponent>
 </Entity>

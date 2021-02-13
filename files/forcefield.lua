@@ -2,7 +2,7 @@ dofile("mods/strains_of_ascension/files/curse.lua")
 
 -- maybe it should be defined in xml? I don't know
 FORCEFIELD_INTERVAL = 300
-FORCEFIELD_FLEX = 25
+FORCEFIELD_FLEX = 40
 
 -- TODO: handle multiple players
 prev_y = 0

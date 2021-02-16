@@ -9,7 +9,7 @@
     damage_per_frame="999"
     update_every_n_frame="1"
     entities_with_tag="player_unit"
-    death_cause="curse of the abyss"
+    death_cause="$soa_curse"
   >
   </AreaDamageComponent>
 </Entity>
